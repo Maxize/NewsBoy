@@ -1,17 +1,11 @@
 package com.amnon.newsboy.app.utils;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.amnon.newsboy.app.application.NewsBoysApp;
-
-import org.w3c.dom.Text;
+import com.amnon.newsboy.app.NewsBoysApp;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 /**
  *  sdcard 的一些 方法

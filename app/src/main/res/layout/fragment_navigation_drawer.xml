@@ -6,4 +6,4 @@
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
     android:background="#cccc"
-    tools:context="com.amnon.newsboy.app.NavigationDrawerFragment" />
+    tools:context="com.amnon.newsboy.app.ui.fragment.NavigationDrawerFragment" />

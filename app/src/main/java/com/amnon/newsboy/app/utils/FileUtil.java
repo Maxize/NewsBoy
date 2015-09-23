@@ -3,7 +3,7 @@ package com.amnon.newsboy.app.utils;
 import android.os.Environment;
 import android.text.TextUtils;
 
-import com.amnon.newsboy.app.application.NewsBoysApp;
+import com.amnon.newsboy.app.NewsBoysApp;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;

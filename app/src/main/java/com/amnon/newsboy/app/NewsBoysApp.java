@@ -1,4 +1,4 @@
-package com.amnon.newsboy.app.application;
+package com.amnon.newsboy.app;
 
 import android.app.Application;
 

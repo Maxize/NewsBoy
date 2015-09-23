@@ -35,8 +35,6 @@ import java.util.List;
 public class HttpRequest {
 
     public final static String TAG = "HttpRequest";
-    public String luaResponseKey = null;
-    public static final String KEY_DOWNLOAD_IMG = "daownload_img_response";
 
     public static void testDownloadImage() {
         List<String> imageUrls = Arrays.asList
@@ -76,33 +74,19 @@ public class HttpRequest {
     }
 
     /**
-     * 使用volley操作下载的
      * 通过图片地址 下载图片
      *
-     * @param groupKey
-     * @param param
+     * @param imageUrl 图片地址
      */
-    public void downloadImage(String groupKey, String param) {
-        JSONObject jsParam = null;
-        String url = null;
-        try {
-            jsParam = new JSONObject(param);
-            url = jsParam.getString("url");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        luaResponseKey = groupKey;
-        final String imgName = Md5.hash(url);
-        final String imgUrl = url;
-        if (imgUrl != null) {
+    public void downloadImage(final String imageUrl) {
+        final String imgName = Md5.hash(imageUrl);
+        if (imageUrl != null) {
             Request request = new Request.Builder()
-                    .url(imgUrl)
+                    .url(imageUrl)
                     .build();
             OkHttpUtil.enqueue(request, new Callback() {
                 @Override
                 public void onFailure(Request request, IOException e) {
-                    sendImageName(false, imgUrl, "", luaResponseKey);
                     Log.w(TAG, "download image error!");
                 }
 
@@ -114,18 +98,6 @@ public class HttpRequest {
                 }
             });
         }
-
-    }
-
-    /**
-     * 回调lua 图片名字返回
-     *
-     * @param saveSuccess 保存图片是否成功
-     * @param imgUrl      图片地址
-     * @param imgName     md5之后的图片名字
-     */
-    public static void sendImageName(final boolean saveSuccess, final String imgUrl, final String imgName, final String luaResponse) {
-
 
     }
 
